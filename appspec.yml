@@ -1,0 +1,35 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /home/ec2-user/java-dev/aws-basics
+permissions:
+  - object: /home/ec2-user/java-dev
+    owner: ec2-user
+    group: ec2-user
+    type:
+      - directory
+  - object: /home/ec2-user/java-dev/aws-basics/gradlew
+    owner: ec2-user
+    group: ec2-user
+    mode: 555
+    type:
+      - file
+hooks:
+  # http://docs.aws.amazon.com/codedeploy/latest/userguide/app-spec-ref-hooks.html
+  #ApplicationStop:
+  BeforeInstall:
+    - location: ./code-deploy/stop_application.sh
+      timeout: 90
+      runas: ec2-user
+    - location: ./code-deploy/clean.sh
+      timeout: 90
+      runas: ec2-user
+  ApplicationStart:
+    - location: ./code-deploy/start_application.sh
+      timeout: 90
+      runas: ec2-user
+  ValidateService:
+    - location: ./code-deploy/basic_health_check.sh
+      timeout: 60
+      runas: ec2-user
