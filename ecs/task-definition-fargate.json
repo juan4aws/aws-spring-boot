@@ -1,0 +1,32 @@
+{
+  "family": "awsSpringBootTaskFargate",
+  "cpu": "256",
+  "memory": "512",
+  "networkMode": "awsvpc",
+  "requiresCompatibilities": [
+    "FARGATE"
+  ],
+  "executionRoleArn": "arn:aws:iam::674457222324:role/ecsTaskExecutionRole",
+  "taskRoleArn": "arn:aws:iam::674457222324:role/ecsSpringBootTasks",
+  "containerDefinitions": [
+    {
+      "name": "AWSSpringBoot-Container",
+      "image": "674457222324.dkr.ecr.us-east-1.amazonaws.com/juan4aws/springbootaws",
+      "portMappings": [
+        {
+          "containerPort": 8080,
+          "protocol": "http"
+        }
+      ],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "awsECSSpringBootFargate-logs",
+          "awslogs-region": "us-east-1",
+          "awslogs-stream-prefix": "awslogs-awsECSSpringBoot"
+        }
+      },
+      "essential": true
+    }
+  ]
+}

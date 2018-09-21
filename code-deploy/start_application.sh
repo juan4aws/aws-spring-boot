@@ -5,7 +5,7 @@
 
 export JAVA_HOME=/usr/lib/jvm/jre-1.8.0-openjdk.x86_64
 
-cd /home/ec2-user/java-dev/aws-basics
+cd /home/ec2-user/java-dev/aws-spring-boot
 nohup ./gradlew bootRun >output.log 2>&1 &
 
 exit 0

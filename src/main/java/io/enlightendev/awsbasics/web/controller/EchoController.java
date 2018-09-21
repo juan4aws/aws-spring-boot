@@ -68,21 +68,6 @@ public class EchoController {
 
     /**
      *
-     * @param var
-     * @return
-     * @throws IOException
-     */
-    @GetMapping("/config/{var:.+}")
-    public String getConfig(@PathVariable("var") String var) throws IOException {
-
-        LOG.info("Making config request.");
-
-        return env.getProperty(var);
-
-    }
-
-    /**
-     *
      * @param userAgent
      * @param clientId
      * @return

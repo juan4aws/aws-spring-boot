@@ -1,0 +1,23 @@
+{
+  "serviceName": "springboot-service-fargate",
+  "cluster": "springboot-cluster-fargate",
+  "launchType": "FARGATE",
+  "deploymentConfiguration": {
+    "maximumPercent": 200,
+    "minimumHealthyPercent": 0
+  },
+  "desiredCount": 2,
+  "networkConfiguration": {
+    "awsvpcConfiguration": {
+      "assignPublicIp": "ENABLED",
+      "securityGroups": [
+        "sg-0af46151c0b874ede"
+      ],
+      "subnets": [
+        "subnet-0c282e68718915368",
+        "subnet-0c282e68718915368"
+      ]
+    }
+  },
+  "taskDefinition": "awsSpringBootTaskFargate"
+}

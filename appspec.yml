@@ -2,14 +2,14 @@ version: 0.0
 os: linux
 files:
   - source: /
-    destination: /home/ec2-user/java-dev/aws-basics
+    destination: /home/ec2-user/java-dev/aws-spring-boot
 permissions:
   - object: /home/ec2-user/java-dev
     owner: ec2-user
     group: ec2-user
     type:
       - directory
-  - object: /home/ec2-user/java-dev/aws-basics/gradlew
+  - object: /home/ec2-user/java-dev/aws-spring-boot/gradlew
     owner: ec2-user
     group: ec2-user
     mode: 555
