@@ -24,7 +24,7 @@ Create your repository: `aws ecr create-repository --repository-name juan4aws/sp
 
 Get repository URL: `aws ecr describe-repositories`
 
-Tag your image: `docker tag juan4aws/aws-spring-boot:latest 674457222324.dkr.ecr.us-east-1.amazonaws.com/juan4aws/springbootaws:latest`
+Tag your image: `docker tag juan4aws/aws-spring-boot:latest 123412341234.dkr.ecr.us-east-1.amazonaws.com/juan4aws/springbootaws:latest`
 
 Login in to ECR: `$(aws ecr get-login --no-include-email --region us-east-1)`
 

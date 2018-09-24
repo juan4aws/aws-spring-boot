@@ -27,14 +27,12 @@ register task:
 list task def: `aws ecs list-task-definitions`
 
 aws ec2 describe-subnets \
-  --query 'Subnets[?VpcId==`vpc-04295a0d49014d9ef`].{VpcId:VpcId, CidrBlock:CidrBlock, AvailabilityZone:AvailabilityZone, AvailableIpAddressCount:AvailableIpAddressCount, SubnetId:SubnetId}' \
+  --query 'Subnets[?VpcId==`vpc-azxcsdsf`].{VpcId:VpcId, CidrBlock:CidrBlock, AvailabilityZone:AvailabilityZone, AvailableIpAddressCount:AvailableIpAddressCount, SubnetId:SubnetId}' \
   --output text
 
 -- Run individual task (cant get this going via CLI - can run the task via console)
 aws ecs run-task --task-definition awsSpringBootTaskFargate:2 --cluster springboot-cluster-fargate \
-  --network-configuration "awsvpcConfiguration={subnets=[subnet-0f905e6d6d6c0a75f,subnet-09dcc6d213dc8cc6b],securityGroups=[sg-0cc339016bd7b3a8c]}"
-  
-  --network-configuration "awsvpcConfiguration={subnets=[subnet-0c282e68718915368,subnet-0c282e68718915368],securityGroups=[sg-0af46151c0b874ede],assignPublicIp=ENABLED}"
+  --network-configuration "awsvpcConfiguration={subnets=[xxxxx,xxxx],securityGroups=[yyyy]}"
 
 -- as a service
 
@@ -43,7 +41,7 @@ full cli
 aws ecs create-service --cluster springboot-cluster-fargate \
   --service-name springboot-service-fargate --task-definition awsSpringBootTaskFargate:2 \
   --desired-count 2 --launch-type "FARGATE" \
-  --network-configuration "awsvpcConfiguration={subnets=[subnet-0f905e6d6d6c0a75f,subnet-09dcc6d213dc8cc6b],securityGroups=[sg-0cc339016bd7b3a8c]}"
+  --network-configuration "awsvpcConfiguration={subnets=[xxxxx,xxxx],securityGroups=[yyyy]}"
   
 - using json file
 aws ecs create-service --cli-input-json file://./ecs/service-definition-fargate.json

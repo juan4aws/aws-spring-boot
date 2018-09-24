@@ -6,12 +6,12 @@
   "requiresCompatibilities": [
     "EC2"
   ],
-  "executionRoleArn": "arn:aws:iam::249204832379:role/ecsSpringBootExecutionRole",
-  "taskRoleArn": "arn:aws:iam::249204832379:role/ecsSpringBootTaskRole",
+  "executionRoleArn": "arn:aws:iam::123412341234:role/ecsSpringBootExecutionRole",
+  "taskRoleArn": "arn:aws:iam::123412341234:role/ecsSpringBootTaskRole",
   "containerDefinitions": [
     {
       "name": "AWSSpringBoot-Container",
-      "image": "249204832379.dkr.ecr.us-east-1.amazonaws.com/juan4aws/springbootaws:latest",
+      "image": "123412341234.dkr.ecr.us-east-1.amazonaws.com/juan4aws/springbootaws:latest",
       "portMappings": [
         {
           "containerPort": 8080,

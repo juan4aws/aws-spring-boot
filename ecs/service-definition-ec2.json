@@ -11,11 +11,11 @@
     "awsvpcConfiguration": {
       "assignPublicIp": "ENABLED",
       "securityGroups": [
-        "sg-0af46151c0b874ede"
+        "sg-yyyyy"
       ],
       "subnets": [
-        "subnet-0c282e68718915368",
-        "subnet-0c282e68718915368"
+        "subnet-xxxxx",
+        "subnet-xxxxx"
       ]
     }
   },
